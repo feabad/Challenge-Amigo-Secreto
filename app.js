@@ -16,6 +16,25 @@ function adicionarAmigo() {
     // Atualizar o array de amigos
     listaDeAmigos.push(nomeAmigo);
     
+    // Atualizar a lista exibida
+    atualizarListaAmigos();
+    
     // Limpar o campo de entrada
     inputAmigo.value = "";
 }
+
+// Função para atualizar a lista de amigos na interface
+function atualizarListaAmigos() {
+    const listaElemento = document.getElementById("listaAmigos");
+    
+    // Limpar a lista antes de atualizar
+    listaElemento.innerHTML = "";
+    
+    // Percorrer o array e criar elementos <li> para cada amigo
+    listaDeAmigos.forEach(amigo => {
+        const li = document.createElement("li");
+        li.textContent = amigo;
+        listaElemento.appendChild(li);
+    });
+}
+
